@@ -5,6 +5,7 @@ import os
 import numpy as np
 
 from config import config
+from tasks import tasks
 
 if __name__ == "__main__":
     physicsClient = p.connect(p.GUI)  # or p.DIRECT
@@ -31,22 +32,22 @@ if __name__ == "__main__":
     body2_rotation_matrix = np.array(body2_rotation_matrix).reshape(3, 3)
 
     start_time = time.time()
-    
+
     ###
-    
+    # tasks.task1(body1_id, body2_id)
+    # tasks.task2(body1_id, body2_id)
+    # tasks.task3(body1_id, body2_id)
+    # tasks.task4(body1_id, body2_id)
+    # tasks.task5(body1_id, body2_id)
+    # tasks.task6(body1_id, body2_id)
+    tasks.task7(body1_id, body2_id)
     ###
 
-    i = 1
+    # Keep the window open after the tasks are done
     while True:
         step_start_time = time.time()
         p.stepSimulation()
         elapsed_time = time.time() - step_start_time
-
-        t = i / (config.Config.OBJECT_ROTATION_STEPS - 1)
-
-        ###
-        
-        ###
 
         sleep_time = max(0, config.Config.SIM_TIME_STEP - elapsed_time)
         time.sleep(sleep_time)
